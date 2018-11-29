@@ -10,6 +10,11 @@ app.use(express.json());
 // Static directory to be served
 app.use(express.static("app/public"));
 
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
