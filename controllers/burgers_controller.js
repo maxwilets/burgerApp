@@ -1,6 +1,6 @@
 var express = require('express')
 var burger = require('../models/burger.js')
-var burger = new Burger
+var router = express.Router()
 
 
 router.get("/", (req, res) => {
@@ -14,27 +14,23 @@ router.get("/", (req, res) => {
 });
 
 router.post("/api/burgers", (req, res) => {
-    burger.addBurger([
-        'burger_name', 'devoured'
-    ], [
-        req.body.burger_name, req.body.devoured
-    ], (result) => {
-        res.json({
-            id: result.insertId
+    var name = req.body.burger_name
+    name1 = JSON.stringify(name)
+    burger.addBurger(
+
+        name1,
+
+        (data) => {
+            res.redirect('/')
         })
-    })
 })
 
-router.put('/api/burger/:id', (req, res) => {
-    var condition = 'id=' + req.params.id
-    burger.updateBurger({
-        devoured: req.body.devoured
-    }, condition, (result) => {
-        if (result.changedRows == 0) {
-            return res.status(404).end()
-        } else {
-            res.status(200).end
-        }
+router.put('/api/burgers/:id', (req, res) => {
+
+    burger.updateBurger(req.params.id, function (result) {
+
+
+
     })
 })
 

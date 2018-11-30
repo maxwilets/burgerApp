@@ -7,15 +7,11 @@ var burgerModel = {
         }) 
     },
     addBurger: (name, cb) =>{
-        orm.insertOne('burgers', ['burger_name'], name, (res)=>{
-            cb(res)
-        })
+        orm.insertOne('burgers', ['burger_name', 'devoured'], [name, 0], cb)
     },
-    updateBurger:(objVal, condition,cb) =>{
-        orm.updateOne('burgers', objVal, condition, (res)=>{
-            cb(res)
-        })
+    updateBurger:(condition, cb) =>{
+        orm.updateOne('burgers', condition, cb)
     }
 }
 
-module.exports(burgerModel)
+module.exports = burgerModel
