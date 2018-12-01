@@ -5,8 +5,15 @@ hr{
     border: 1px red solid
 }
 
-eat{
+.eat{
     color: #fffa0a
+}
+.subs{
+    margin-bottom: 1%
+}
+.burgy{
+    font:'20px' bold;
+    color: red
 }
 h1{ 
     margin-left: 15%;
@@ -21,8 +28,5 @@ img{
 }
 
 h4{
-    color:red
-}
-h5{
     color:red
 }

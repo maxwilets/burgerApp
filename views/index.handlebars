@@ -17,10 +17,10 @@
                 <h4>Burgers to Devour</h4>
                 <hr>
                 {{#each burgers}} {{#unless this.devoured}}
-                <li>
+                <li class='burgy'>
                     <div>
-                    <p>
-                        <h5> {{this.burger_name}} </h5>
+                    <p class='burgy'>
+                         {{this.burger_name}} 
                         <a class="waves-effect waves-light red eat btn-small" data-id="{{this.id}}">Eat!!</a>
                     </p>
                     </div>
@@ -36,8 +36,8 @@
                 <h4>Burgers Devoured</h4>
                 <hr>
                 {{#each burgers}} {{#if this.devoured}}
-                <li>
-                    <h5>{{this.burger_name}}</h5>
+                <li class= 'burgy'>
+                    <p class='burgy'>{{this.burger_name}}</h5>
                 </li>
                 {{/if}}{{/each}}
             </ol>
@@ -51,13 +51,13 @@
     <!--  <div class="btn">-->
        <!-- <button id='burgpost'type='submit'>Add</button>-->
         <!--  <a id='burgpost' class="btn-floating btn-large waves-effect waves-light red"><i type='submit' class="material-icons">add</i></a>-->
-     <button class="btn waves-effect waves-light red" type="submit" name="action">Add
+     <button class="subs btn waves-effect waves-light red" type="submit" name="action">Add
     <i class="material-icons">add</i>
   </button>
     <!--   <input type="text">--> 
     <!-- </div>-->
       <div class="file-path-wrapper">
-        <input type='text' id = 'name' name='burger_name'class=" validate"  placeholder="Add a Burger to Eat">
+        <input type='text' id = 'name' name='burger_name'class=" validate red"  placeholder="Add a Burger to Eat">
       </div>
     </div>
   </form>
