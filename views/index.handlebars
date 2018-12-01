@@ -1,12 +1,12 @@
 <div class='container'>
     <div class='row'>
-        <div class='col s8 push-s3'>
+        <div class='col l6 m-12 s12 push-l3'>
             <h1>Eat-Da-Burger</h1>
         </div>
     </div>
     <br />
     <div class='row'>
-        <div class='col s8 push-s3'>
+        <div class='col l8 s8 push-l4 push-s2'>
             <img src='/assets/img/burger.png'>
         </div>
     </div>
@@ -15,22 +15,26 @@
         <div class='col s4'>
             <ol>
                 <h4>Burgers to Devour</h4>
+                <hr>
                 {{#each burgers}} {{#unless this.devoured}}
                 <li>
-                    <!--  {{this.id}} -->
+                    <div>
                     <p>
                         <h5> {{this.burger_name}} </h5>
-                        <a class="waves-effect waves-light btn eat" data-id="{{this.id}}">Devour It!!</a>
+                        <a class="waves-effect waves-light red eat btn-small" data-id="{{this.id}}">Eat!!</a>
                     </p>
+                    </div>
                 </li>
 
                 {{/unless}} {{/each}}
             </ol>
         </div>
 
-        <div class='col s3 push-s5'>
+        <div class='col s4 push-l4 push-s2'>
             <ol>
+                
                 <h4>Burgers Devoured</h4>
+                <hr>
                 {{#each burgers}} {{#if this.devoured}}
                 <li>
                     <h5>{{this.burger_name}}</h5>
@@ -43,10 +47,15 @@
         <div class='col s6 push 3'>
       <form action="/api/burgers" method='POST'>
     <div class="input-field">
-      <div class="btn">
-        <button id='burgpost'type='submit'>Add</button>
-       <!-- <input type="text" id='name'>-->
-      </div>
+   
+    <!--  <div class="btn">-->
+       <!-- <button id='burgpost'type='submit'>Add</button>-->
+        <!--  <a id='burgpost' class="btn-floating btn-large waves-effect waves-light red"><i type='submit' class="material-icons">add</i></a>-->
+     <button class="btn waves-effect waves-light" type="submit" name="action">Add
+    <i class="material-icons">add</i>
+  </button>
+    <!--   <input type="text">--> 
+    <!-- </div>-->
       <div class="file-path-wrapper">
         <input type='text' id = 'name' name='burger_name'class=" validate"  placeholder="Add a Burger to Eat">
       </div>

@@ -1,7 +1,28 @@
-h1{
-    color:red
+body{
+    background-color:#fffa0a
+}
+hr{
+    border: 1px red solid
+}
+
+eat{
+    color: #fffa0a
+}
+h1{ 
+    margin-left: 15%;
+    color:red;
+    border: dashed 2px red;
+    padding: 2% 
 }
 img{
     height: 300px;
-    width: 350px
+    width: 350px;
+    
+}
+
+h4{
+    color:red
+}
+h5{
+    color:red
 }
