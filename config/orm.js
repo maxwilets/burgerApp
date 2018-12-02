@@ -4,6 +4,8 @@ var connection = require('../config/connection')
 
 orm = {
     selectAll: (table, cb) => {
+        //get request, displays all of the burgers on the app
+    
         var query = "SELECT * FROM " + table;
         connection.query(query, (err, res) => {
             if (err) {
@@ -15,8 +17,7 @@ orm = {
 
     },
     insertOne: (table,cols,value, cb) => {
-       //  var query = 'INSERT INTO ' + table + "("+ cols.toString();
-      //   query += ')' + "VALUES (" + printQuestionMark(val.length) + ');'
+        //POST request add a new burger into the database
         var query = "INSERT INTO "+table +"("+ cols +")"+ "VALUES("
         query += value + ");"
 
@@ -28,6 +29,7 @@ orm = {
         })
     },
     updateOne: (table, condition, cb) => {
+        //UPDATE request changes states from the database
         var query = "UPDATE " + table + " SET DEVOURED = true"
         query += " WHERE id=" + condition + ';'
        // var query = "UPDATE burgers SET devoured = true WHERE id =" + id

@@ -16,6 +16,7 @@
             <ol>
                 <h4>Burgers to Devour</h4>
                 <hr>
+                <!--loop to populate the undevoured burgers in an unordered list-->
                 {{#each burgers}} {{#unless this.devoured}}
                 <li class='burgy'>
                     <div>
@@ -35,6 +36,7 @@
                 
                 <h4>Burgers Devoured</h4>
                 <hr>
+                <!-- loop to populate the devoured burgers list-->
                 {{#each burgers}} {{#if this.devoured}}
                 <li class= 'burgy'>
                     <p class='burgy'>{{this.burger_name}}</h5>
@@ -43,19 +45,17 @@
             </ol>
         </div>
     </div>
+    <!--thebutton for the add burger form has a POST method-->
     <div class= 'container'>
         <div class='col s6 push 3'>
       <form action="/api/burgers" method='POST'>
     <div class="input-field">
    
-    <!--  <div class="btn">-->
-       <!-- <button id='burgpost'type='submit'>Add</button>-->
-        <!--  <a id='burgpost' class="btn-floating btn-large waves-effect waves-light red"><i type='submit' class="material-icons">add</i></a>-->
+
      <button class="subs btn waves-effect waves-light red" type="submit" name="action">Add
     <i class="material-icons">add</i>
   </button>
-    <!--   <input type="text">--> 
-    <!-- </div>-->
+    
       <div class="file-path-wrapper">
         <input type='text' id = 'name' name='burger_name'class=" validate red"  placeholder="Add a Burger to Eat">
       </div>
@@ -68,24 +68,16 @@
 
 <script>
     $(() => {
-   //     $('#burgpost').on("click", function(){
-     //////       var name = $('#burger_name').val()
-           // console.log(name)
-        //    $.ajax('/api/burgers',{
-          //      type: "POST",
-         //       name: name
-         //   }).then(
-           //     location.reload()
-           // )
-       // })
+       //JQuery call for updating a buger
         $('.eat').on("click", function (event) {
-
+            //sets the devoured state to true
+            //the button has a datatype matching the ID in the database
             var id = $(this).data('id');
             console.log($(this))
             var devour = {
                 devoured: true
             }
-
+            //leads to the AJAX call to update the burger
             $.ajax('/api/burgers/' + id, {
                 type: "PUT",
                 id: id
